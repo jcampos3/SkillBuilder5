@@ -18,7 +18,13 @@ public class SkillBuilder5
     public static double[] prefixAverage(double[] data)
     {
         //TODO: replace this line with your code.
-        return null;
+        double sum = 0;
+        double[] arr = new double[data.length];
+        for(int i = 0; i < data.length; i++){
+           sum += data[i];
+           arr[i] = sum / (i+1);
+        }
+        return arr;
     }
 
     /**
@@ -32,7 +38,10 @@ public class SkillBuilder5
     public static int  indexOf(int searchValue, int[] anArray)
     {
         //TODO: replace this line with your code.
-        return 0;
+        for(int i = 0; i < anArray.length; i++){
+            if(anArray[i] == searchValue) return i;
+        }
+        return -1;
     }
 
     /**
@@ -46,7 +55,10 @@ public class SkillBuilder5
     public static int  indexOf(String s, String[] anArray)
     {
         //TODO: replace this line with your code.
-        return 0;
+        for(int i = 0; i < anArray.length; i++){
+            if(anArray[i].equals(s)) return i;
+        }
+        return -1;
     }
 
     /**
@@ -59,7 +71,20 @@ public class SkillBuilder5
     public static String[] remove(String s, String[] anArray)
     {
         // add your code here
-        return null;
+        int counter = 0;
+        for(int i = 0; i < anArray.length; i++){
+            if(anArray[i].equals(s)) counter++;
+        }
+
+        String[] arr = new String[anArray.length - counter];
+        int index = 0;
+        for(int i = 0; i < anArray.length; i++){
+            if(!anArray[i].equals(s)){
+                arr[index] = anArray[i];
+                index++;
+            }
+        }
+        return arr;
     }
 
     /**
@@ -69,5 +94,15 @@ public class SkillBuilder5
     public static void reverse(int[] anArray)
     {
         // add your code here
+        int[] clone = new int[anArray.length];
+        for(int i = 0; i < anArray.length; i++){
+            clone[i] = anArray[i];
+        }
+
+        int index = 0;
+        for(int i = anArray.length - 1; i > -1; i--){
+            anArray[index] = clone[i];
+            index++;
+        }
     }
 }
